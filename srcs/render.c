@@ -1,5 +1,17 @@
 #include "fractol.h"
 
+void	handle_move(int key, t_fractal *fractal)
+{
+	if (key == KEY_UP)
+		fractal->offset_y -= VIEW_CHANGE_SIZE / fractal->zoom;
+	else if (key == KEY_DOWN)
+		fractal->offset_y += VIEW_CHANGE_SIZE / fractal->zoom;
+	else if (key == KEY_LEFT)
+		fractal->offset_x -= VIEW_CHANGE_SIZE / fractal->zoom;
+	else if (key == KEY_RIGHT)
+		fractal->offset_x += VIEW_CHANGE_SIZE / fractal->zoom;
+}
+
 int	compute_fractal(t_fractal *fract, t_complex *c, int x, int y)
 {
 	int	iter;
@@ -49,17 +61,15 @@ void	render_fractal(t_fractal *fractal)
 {
 	static t_complex	c;
 	int					x;
-	t_fractal			*fract;
 
 	x = 0;
-	fract = fractal;
-	mlx_clear_window(fract->mlx, fract->window);
+	mlx_clear_window(fractal->mlx, fractal->window);
 	while (x < WIN_SIZE)
 	{
-		if (fract->type != JULIA)
-			c.re = (x / fract->zoom) + fract->offset_x;
-		else if (!fract->is_julia_lock)
-			c.re = (fract->mouse_x / fract->zoom) + fract->offset_x;
+		if (fractal->type != JULIA)
+			c.re = (x / fractal->zoom) + fractal->offset_x;
+		else if (!fractal->is_julia_lock)
+			c.re = (fractal->mouse_x / fractal->zoom) + fractal->offset_x;
 		process_row(fractal, &c, x);
 		x++;
 	}

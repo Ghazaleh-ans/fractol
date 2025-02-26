@@ -10,7 +10,7 @@
 
 # define MANDELBROT 1
 # define JULIA 2
-# define WIN_SIZE 500
+# define WIN_SIZE 600
 # define VIEW_CHANGE_SIZE 60
 # define MIN_ITERATIONS 256
 # define MAX_ITERATIONS 256
@@ -18,12 +18,6 @@
 # define SCALE 2
 # define FIXED_RADIUS 1
 # define MINIMUM_RADIUS 0.5
-
-typedef struct s_pixel
-{
-	int	x;
-	int	y;
-}	t_pixel;
 
 typedef struct s_complex
 {
@@ -59,13 +53,18 @@ typedef struct s_fractal
 
 void	wrong_input(void);
 void	error_message(char *str);
-int	compute_fractal(t_fractal *fract, t_complex *c, int x, int y);
+int		compute_fractal(t_fractal *fract, t_complex *c, int x, int y);
 void	render_fractal(t_fractal *fractal);
-int	compute_mandelbrot(t_fractal *fract, t_complex *c);
-int	compute_julia(t_fractal *fract, t_complex *c, int x, int y);
+int		compute_mandelbrot(t_fractal *fract, t_complex *c);
+int		compute_julia(t_fractal *fract, t_complex *c, int x, int y);
 void	init_fractal(t_fractal *fractal, char *name);
 void	set_fractal(t_fractal *fractal, char *name);
-void	change_fractal(int key, t_fractal *fractal);
 void	reset_fractal(t_fractal *fractal, char *fractal_name, int fractal_type);
 void	set_pixel_color(t_fractal *fractal, int x, int y, int color);
+void	handle_move(int key, t_fractal *fractal);
+int		on_key_press(int key, t_fractal *fractal);
+int		on_destroy(t_fractal *engine);
+int		on_mouse_scroll(int key, int x, int y, t_fractal *fractal);
+int	on_mouse_move(int x, int y, t_fractal *fractal);
+
 # endif

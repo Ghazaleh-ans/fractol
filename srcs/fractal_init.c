@@ -1,10 +1,5 @@
 #include "fractol.h"
 
-int	create_trgb(int t, int r, int g, int b)
-{
-	return (t << 24 | r << 16 | g << 8 | b);
-}
-
 void	reset_fractal(t_fractal *fractal, char *fractal_name, int fractal_type)
 {
 	fractal->name = fractal_name;
@@ -17,21 +12,6 @@ void	reset_fractal(t_fractal *fractal, char *fractal_name, int fractal_type)
 	fractal->is_julia_lock = false;
 	fractal->color = DEFAULT_COLOR;
 	fractal->iterations = MIN_ITERATIONS;
-}
-
-void	change_fractal(int key, t_fractal *fractal)
-{
-	reset_fractal(fractal, "mandelbrot", MANDELBROT);
-	if (key == KEY_TWO)
-	{
-		fractal->name = "julia";
-		fractal->type = JULIA;
-	}
-	else if (key == KEY_THREE)
-	{
-		fractal->name = "mandelbrot";
-		fractal->type = MANDELBROT;
-	}
 }
 
 void	set_fractal(t_fractal *fractal, char *name)
@@ -61,7 +41,7 @@ void	init_fractal(t_fractal *fractal, char *name)
 	if (!fractal->mlx)
 		error_message("ERROR : mlx_init\n");
 	fractal->window = mlx_new_window(fractal->mlx, WIN_SIZE, WIN_SIZE, \
-												"Fractol");
+												fractal->name);
 	fractal->image.img = mlx_new_image(fractal->mlx, WIN_SIZE, WIN_SIZE);
 	if (!fractal->window || !fractal->image.img)
 	{

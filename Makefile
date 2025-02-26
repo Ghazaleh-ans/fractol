@@ -33,7 +33,7 @@ INCLUDES		= $(wildcard $(INCLUDES_DIR)/fractol.h) \
 
 # Sources
 SRCS_DIR		= srcs/
-SRC_FILES		= main.c fractal_compute.c fractal_init.c render.c utils.c
+SRC_FILES		= main.c fractal_compute.c fractal_init.c render.c utils.c event_handler.c
 
 SRCS			= $(addprefix $(SRCS_DIR), $(SRC_FILES))
 
