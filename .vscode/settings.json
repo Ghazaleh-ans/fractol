@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"__locale": "cpp",
+		"atomic": "cpp",
+		"cstdint": "cpp",
+		"stdlib.h": "c",
+		"fractol.h": "c",
+		"stdio.h": "c",
+		"stdbool.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
+}
