@@ -25,6 +25,10 @@ int	compute_fractal(t_fractal *fract, t_complex *c, int x, int y)
 		iter = compute_mandelbrot(fract, c);
 	else if (fract->type == JULIA)
 		iter = compute_julia(fract, c, x, y);
+	else if (fract->type == BURNINGSHIP)
+		iter = compute_burning_ship(fract, c);
+	else if (fract->type == TRICORN)
+		iter = compute_tricorn(fract, c);
 	return (iter);
 }
 

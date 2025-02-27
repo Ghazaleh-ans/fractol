@@ -23,6 +23,10 @@ void	set_fractal(t_fractal *fractal, char *name)
 		fractal->type = MANDELBROT;
 	else if (ft_strcmp(name, "julia") == 0)
 		fractal->type = JULIA;
+	else if (ft_strcmp(name, "burningship") == 0)
+		fractal->type = BURNINGSHIP;
+	else if (ft_strcmp(name, "tricorn") == 0)
+		fractal->type = TRICORN;
 	else
 		wrong_input();
 }

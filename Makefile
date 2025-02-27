@@ -12,7 +12,7 @@ WHITE    		= "\033[37m"    # White
 # Compiler
 NAME			= fractol
 CC				= cc
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -O3 -Ofast -flto
 OS				= $(shell uname)
 MAKE			= make -sC
 MKDIR			= mkdir -p

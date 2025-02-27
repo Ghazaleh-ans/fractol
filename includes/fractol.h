@@ -10,6 +10,8 @@
 
 # define MANDELBROT 1
 # define JULIA 2
+# define BURNINGSHIP 3
+# define TRICORN 4
 # define WIN_SIZE 526
 # define VIEW_CHANGE_SIZE 60
 # define MIN_ITERATIONS 256
@@ -66,5 +68,7 @@ int		on_key_press(int key, t_fractal *fractal);
 int		on_destroy(t_fractal *engine);
 int		on_mouse_scroll(int key, int x, int y, t_fractal *fractal);
 int		on_mouse_move(int x, int y, t_fractal *fractal);
+int		compute_burning_ship(t_fractal *fract, t_complex *c);
+int		compute_tricorn(t_fractal *fract, t_complex *c);
 
 # endif
