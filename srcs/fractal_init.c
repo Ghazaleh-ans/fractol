@@ -1,9 +1,8 @@
 #include "fractol.h"
 
-void	reset_fractal(t_fractal *fractal, char *fractal_name, int fractal_type)
+void	reset_fractal(t_fractal *fractal, char *fractal_name)
 {
 	fractal->name = fractal_name;
-	fractal->type = fractal_type;
 	fractal->zoom = WIN_SIZE / 4;
 	fractal->mouse_x = 0;
 	fractal->mouse_y = 0;
@@ -18,15 +17,14 @@ void	set_fractal(t_fractal *fractal, char *name)
 {
 	if (!fractal || !name)
 		return ;
-	fractal->name = name;
-	if (ft_strcmp(name, "mandelbrot") == 0)
-		fractal->type = MANDELBROT;
-	else if (ft_strcmp(name, "julia") == 0)
-		fractal->type = JULIA;
-	else if (ft_strcmp(name, "burningship") == 0)
-		fractal->type = BURNINGSHIP;
-	else if (ft_strcmp(name, "tricorn") == 0)
-		fractal->type = TRICORN;
+	if (ft_strcmp(name, MANDELBROT) == 0)
+		fractal->name = MANDELBROT;
+	else if (ft_strcmp(name, JULIA) == 0)
+		fractal->name = JULIA;
+	else if (ft_strcmp(name, BURNINGSHIP) == 0)
+		fractal->name = BURNINGSHIP;
+	else if (ft_strcmp(name, TRICORN) == 0)
+		fractal->name = TRICORN;
 	else
 		wrong_input();
 }
@@ -39,7 +37,7 @@ void	init_fractal(t_fractal *fractal, char *name)
 
 	if (!fractal || !name)
 		return ;
-	reset_fractal(fractal, "mandelbrot", MANDELBROT);
+	reset_fractal(fractal, MANDELBROT);
 	set_fractal(fractal, name);
 	fractal->mlx = mlx_init();
 	if (!fractal->mlx)

@@ -11,7 +11,7 @@ int	on_key_press(int key, t_fractal *fractal)
 {
 	if (key >= KEY_LEFT && key <= KEY_DOWN)
 		handle_move(key, fractal);
-	else if (key == KEY_F && fractal->type == JULIA)
+	else if (key == KEY_F && (ft_strcmp(fractal->name, JULIA) == 0))
 		fractal->is_julia_lock = !(fractal->is_julia_lock);
 	else if (key == KEY_ESC)
 		on_destroy(fractal);
@@ -43,7 +43,7 @@ int	on_mouse_scroll(int key, int x, int y, t_fractal *fractal)
 
 int	on_mouse_move(int x, int y, t_fractal *fractal)
 {
-	if (!(fractal->type == JULIA) || fractal->is_julia_lock)
+	if (!(ft_strcmp(fractal->name, JULIA) == 0) || fractal->is_julia_lock)
 		return (0);
 	fractal->mouse_x = x;
 	fractal->mouse_y = y;

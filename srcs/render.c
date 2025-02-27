@@ -17,17 +17,17 @@ int	compute_fractal(t_fractal *fract, t_complex *c, int x, int y)
 	int	iter;
 
 	iter = 0;
-	if (fract->type != JULIA)
+	if (ft_strcmp(fract->name, JULIA) != 0)
 		c->im = (y / fract->zoom) + fract->offset_y;
 	else if (!fract->is_julia_lock)
 		c->im = (fract->mouse_y / fract->zoom) + fract->offset_y;
-	if (fract->type == MANDELBROT)
+	if (ft_strcmp(fract->name, MANDELBROT) == 0)
 		iter = compute_mandelbrot(fract, c);
-	else if (fract->type == JULIA)
+	else if (ft_strcmp(fract->name, JULIA) == 0)
 		iter = compute_julia(fract, c, x, y);
-	else if (fract->type == BURNINGSHIP)
+	else if (ft_strcmp(fract->name, BURNINGSHIP) == 0)
 		iter = compute_burning_ship(fract, c);
-	else if (fract->type == TRICORN)
+	else if (ft_strcmp(fract->name, TRICORN) == 0)
 		iter = compute_tricorn(fract, c);
 	return (iter);
 }
@@ -70,7 +70,7 @@ void	render_fractal(t_fractal *fractal)
 	mlx_clear_window(fractal->mlx, fractal->window);
 	while (x < WIN_SIZE)
 	{
-		if (fractal->type != JULIA)
+		if (ft_strcmp(fractal->name, JULIA) != 0)
 			c.re = (x / fractal->zoom) + fractal->offset_x;
 		else if (!fractal->is_julia_lock)
 			c.re = (fractal->mouse_x / fractal->zoom) + fractal->offset_x;

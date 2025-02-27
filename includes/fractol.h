@@ -8,15 +8,16 @@
 # include "mlx.h"
 # include "libft.h"
 
-# define MANDELBROT 1
-# define JULIA 2
-# define BURNINGSHIP 3
-# define TRICORN 4
+# define MANDELBROT "mandelbrot"
+# define JULIA "julia"
+# define BURNINGSHIP "burningship"
+# define TRICORN "tricorn"
 # define WIN_SIZE 526
 # define VIEW_CHANGE_SIZE 60
 # define MIN_ITERATIONS 256
 # define MAX_ITERATIONS 256
 # define DEFAULT_COLOR 655362
+//# define DEFAULT_COLOR 983040
 # define SCALE 2
 # define FIXED_RADIUS 1
 # define MINIMUM_RADIUS 0.5
@@ -39,7 +40,6 @@ typedef struct s_image
 typedef struct s_fractal
 {
 	char		*name;
-	int			type;
 	void		*mlx;
 	void		*window;
 	t_image		image;
@@ -61,7 +61,7 @@ int		compute_mandelbrot(t_fractal *fract, t_complex *c);
 int		compute_julia(t_fractal *fract, t_complex *c, int x, int y);
 void	init_fractal(t_fractal *fractal, char *name);
 void	set_fractal(t_fractal *fractal, char *name);
-void	reset_fractal(t_fractal *fractal, char *fractal_name, int fractal_type);
+void	reset_fractal(t_fractal *fractal, char *fractal_name);
 void	set_pixel_color(t_fractal *fractal, int x, int y, int color);
 void	handle_move(int key, t_fractal *fractal);
 int		on_key_press(int key, t_fractal *fractal);
