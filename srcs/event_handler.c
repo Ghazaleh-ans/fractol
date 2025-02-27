@@ -9,7 +9,7 @@ int	on_destroy(t_fractal *fractal)
 
 int	on_key_press(int key, t_fractal *fractal)
 {
-	if (key >= KEY_LEFT && key <= KEY_UP)
+	if (key >= KEY_LEFT && key <= KEY_DOWN)
 		handle_move(key, fractal);
 	else if (key == KEY_F && fractal->type == JULIA)
 		fractal->is_julia_lock = !(fractal->is_julia_lock);
