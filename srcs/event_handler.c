@@ -41,12 +41,12 @@ int	on_mouse_scroll(int key, int x, int y, t_fractal *fractal)
 	return (0);
 }
 
-int	on_mouse_move(int x, int y, t_fractal *fractal)
-{
-	if (!(ft_strcmp(fractal->name, JULIA) == 0) || fractal->is_julia_lock)
-		return (0);
-	fractal->mouse_x = x;
-	fractal->mouse_y = y;
-	render_fractal(fractal);
-	return (0);
-}
+// int	on_mouse_move(int x, int y, t_fractal *fractal)
+// {
+// 	if (!(ft_strcmp(fractal->name, JULIA) == 0) || fractal->is_julia_lock)
+// 		return (0);
+// 	fractal->mouse_x = x;
+// 	fractal->mouse_y = y;
+// 	render_fractal(fractal);
+// 	return (0);
+// }

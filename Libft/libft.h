@@ -31,6 +31,18 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct	s_atof_data
+{
+	double result;
+	double fraction;
+	double sign;
+	double power;
+	double exponent;
+	double exponent_sign;
+	double exponent_factor;
+	int decimal_found;
+}	t_atof_data;
+
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -42,6 +54,7 @@ int		ft_toupper(int c);
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
 char	*ft_itoa(int n);
+double	ft_atof(const char *str);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);

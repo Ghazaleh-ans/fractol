@@ -70,5 +70,8 @@ int		on_mouse_scroll(int key, int x, int y, t_fractal *fractal);
 int		on_mouse_move(int x, int y, t_fractal *fractal);
 int		compute_burning_ship(t_fractal *fract, t_complex *c);
 int		compute_tricorn(t_fractal *fract, t_complex *c);
+int		check_input(int	argc, char **argv, t_fractal *fractal);
+void	wrong_julia_input(void);
+void	check_julia_input(char *str);
 
 # endif
