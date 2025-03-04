@@ -11,10 +11,10 @@ int	on_key_press(int key, t_fractal *fractal)
 {
 	if (key >= KEY_LEFT && key <= KEY_DOWN)
 		handle_move(key, fractal);
-	else if (key == KEY_F && (ft_strcmp(fractal->name, JULIA) == 0))
-		fractal->is_julia_lock = !(fractal->is_julia_lock);
 	else if (key == KEY_ESC)
 		on_destroy(fractal);
+	else if ((key >= KEY_Q && key <= KEY_Y) || (key >= KEY_A && key <= KEY_H))
+		change_color(key, fractal);
 	render_fractal(fractal);
 	return (0);
 }

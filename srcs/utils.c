@@ -63,9 +63,8 @@ int		check_input(int	argc, char **argv, t_fractal *fractal)
 		{
 			check_julia_input(argv[2]);
 			check_julia_input(argv[3]);
-			fractal->mouse_x = ft_atof(argv[2]);
-			fractal->mouse_y = ft_atof(argv[3]);
-			fractal->is_julia_lock = true;
+			fractal->julia_x = ft_atof(argv[2]);
+			fractal->julia_y = ft_atof(argv[3]);
 			return (0);
 		}
 	}

@@ -45,12 +45,11 @@ typedef struct s_fractal
 	t_image		image;
 	double		zoom;
 	u_int32_t	color;
-	double		mouse_x;
-	double		mouse_y;
+	double		julia_x;
+	double		julia_y;
 	double		offset_x;
 	double		offset_y;
 	int			iterations;
-	bool		is_julia_lock;
 }	t_fractal;
 
 void	wrong_input(void);
@@ -67,7 +66,8 @@ void	handle_move(int key, t_fractal *fractal);
 int		on_key_press(int key, t_fractal *fractal);
 int		on_destroy(t_fractal *engine);
 int		on_mouse_scroll(int key, int x, int y, t_fractal *fractal);
-int		on_mouse_move(int x, int y, t_fractal *fractal);
+void	change_color(int key, t_fractal *fractal);
+//int		on_mouse_move(int x, int y, t_fractal *fractal);
 int		compute_burning_ship(t_fractal *fract, t_complex *c);
 int		compute_tricorn(t_fractal *fract, t_complex *c);
 int		check_input(int	argc, char **argv, t_fractal *fractal);

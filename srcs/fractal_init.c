@@ -4,11 +4,8 @@ void	reset_fractal(t_fractal *fractal, char *fractal_name)
 {
 	fractal->name = fractal_name;
 	fractal->zoom = WIN_SIZE / 4;
-	fractal->mouse_x = 0;
-	fractal->mouse_y = 0;
 	fractal->offset_x = -2;
 	fractal->offset_y = -2;
-	fractal->is_julia_lock = false;
 	fractal->color = DEFAULT_COLOR;
 	fractal->iterations = MIN_ITERATIONS;
 }
