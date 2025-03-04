@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 15:34:10 by gansari           #+#    #+#             */
+/*   Updated: 2025/03/04 15:34:12 by gansari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -70,8 +82,8 @@ void	change_color(int key, t_fractal *fractal);
 //int		on_mouse_move(int x, int y, t_fractal *fractal);
 int		compute_burning_ship(t_fractal *fract, t_complex *c);
 int		compute_tricorn(t_fractal *fract, t_complex *c);
-int		check_input(int	argc, char **argv, t_fractal *fractal);
+void	check_input(int argc, char **argv, t_fractal *fractal);
 void	wrong_julia_input(void);
 void	check_julia_input(char *str);
 
-# endif
+#endif

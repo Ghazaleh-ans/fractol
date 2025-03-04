@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keys.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 15:34:19 by gansari           #+#    #+#             */
+/*   Updated: 2025/03/04 15:34:22 by gansari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef KEYS_H
 # define KEYS_H
 
@@ -35,7 +47,7 @@ typedef enum keys
 	MOUSE_RIGHT_CLK = 3,
 	MOUSE_SCRL_UP = 4,
 	MOUSE_SCRL_DOWN = 5,
-}	keys_t;
+}	t_keys;
 
 # else
 
@@ -71,7 +83,7 @@ typedef enum keys
 	MOUSE_SCRL_CLK = 3,
 	MOUSE_SCRL_DOWN = 4,
 	MOUSE_SCRL_UP = 5,
-}	keys_t;
+}	t_keys;
 # endif
 
-# endif
+#endif

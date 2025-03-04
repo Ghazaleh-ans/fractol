@@ -31,16 +31,16 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-typedef struct	s_atof_data
+typedef struct s_atof_data
 {
-	double result;
-	double fraction;
-	double sign;
-	double power;
-	double exponent;
-	double exponent_sign;
-	double exponent_factor;
-	int decimal_found;
+	double	result;
+	double	fraction;
+	double	sign;
+	double	power;
+	double	exponent;
+	double	exponent_sign;
+	double	exponent_factor;
+	int		decimal_found;
 }	t_atof_data;
 
 int		ft_isalnum(int c);

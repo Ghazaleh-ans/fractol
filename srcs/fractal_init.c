@@ -1,4 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractal_init.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 15:00:12 by gansari           #+#    #+#             */
+/*   Updated: 2025/03/04 15:00:14 by gansari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
+
+void	change_color(int key, t_fractal *fractal)
+{
+	if (key == KEY_Q)
+		fractal->color += 0x300000;
+	else if (key == KEY_W)
+		fractal->color += 0x030000;
+	else if (key == KEY_E)
+		fractal->color += 0x003000;
+	else if (key == KEY_R)
+		fractal->color += 0x000300;
+	else if (key == KEY_T)
+		fractal->color += 0x000030;
+	else if (key == KEY_Y)
+		fractal->color += 0x000003;
+	else if (key == KEY_A)
+		fractal->color -= 0x300000;
+	else if (key == KEY_S)
+		fractal->color -= 0x030000;
+	else if (key == KEY_D)
+		fractal->color -= 0x003000;
+	else if (key == KEY_F)
+		fractal->color -= 0x000300;
+	else if (key == KEY_G)
+		fractal->color -= 0x000030;
+	else if (key == KEY_H)
+		fractal->color -= 0x000003;
+}
 
 void	reset_fractal(t_fractal *fractal, char *fractal_name)
 {
@@ -46,9 +86,11 @@ void	init_fractal(t_fractal *fractal, char *name)
 	{
 		mlx_destroy_image(fractal->mlx, fractal->image.img);
 		mlx_destroy_window(fractal->mlx, fractal->window);
+		mlx_destroy_display(fractal->mlx);
+		free(fractal->mlx);
 		error_message("ERROR : window and image creation\n");
 	}
-	fractal->image.addr = mlx_get_data_addr(fractal->image.img ,\
+	fractal->image.addr = mlx_get_data_addr(fractal->image.img, \
 								&pixel_bits, &line_length, &endian);
 	fractal->image.bits_per_pixel = pixel_bits;
 	fractal->image.line_length = line_length;

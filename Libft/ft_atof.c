@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 15:04:40 by gansari           #+#    #+#             */
+/*   Updated: 2025/03/04 15:04:42 by gansari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_init_and_parse_sign(t_atof_data *data, const char **str)
@@ -10,8 +22,8 @@ static void	ft_init_and_parse_sign(t_atof_data *data, const char **str)
 	data->exponent = 0.0;
 	data->exponent_sign = 1.0;
 	data->exponent_factor = 1.0;
-	while (**str == ' ' || **str == '\t' || **str == '\n' ||
-		**str == '\v' || **str == '\f' || **str == '\r')
+	while (**str == ' ' || **str == '\t' || **str == '\n'
+		|| **str == '\v' || **str == '\f' || **str == '\r')
 		(*str)++;
 	if (**str == '-' || **str == '+')
 	{
@@ -62,8 +74,8 @@ static void	ft_parse_exponent(t_atof_data *data, const char **str)
 
 static double	ft_finalize_result(t_atof_data *data)
 {
-	int	i;
-	double result;
+	int		i;
+	double	result;
 
 	result = data->result;
 	if (data->decimal_found)

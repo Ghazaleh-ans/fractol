@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractal_compute.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 15:00:02 by gansari           #+#    #+#             */
+/*   Updated: 2025/03/04 15:00:04 by gansari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	compute_mandelbrot(t_fractal *fract, t_complex *c)
@@ -61,7 +73,8 @@ int	compute_tricorn(t_fractal *fract, t_complex *c)
 {
 	double		re_temp;
 	t_complex	z;
-	int		i;
+	int			i;
+
 	i = 0;
 	z.re = 0;
 	z.im = 0;

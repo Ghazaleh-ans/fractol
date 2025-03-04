@@ -28,7 +28,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 ${NAME}: ${OBJS} ${INC}
 	@${LIBC} ${NAME} ${OBJS}
-	@echo "\033[38;2;255;255;0mlibft library is built (＾ω＾)\n"
 
 all: ${NAME}
 

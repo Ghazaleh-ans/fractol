@@ -1,32 +1,16 @@
-#include "fractol.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/04 15:00:37 by gansari           #+#    #+#             */
+/*   Updated: 2025/03/04 15:00:39 by gansari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	change_color(int key, t_fractal *fractal)
-{
-	if (key == KEY_Q)
-		fractal->color += 0x300000;
-	else if (key == KEY_W)
-		fractal->color += 0x030000;
-	else if (key == KEY_E)
-		fractal->color += 0x003000;
-	else if (key == KEY_R)
-		fractal->color += 0x000300;
-	else if (key == KEY_T)
-		fractal->color += 0x000030;
-	else if (key == KEY_Y)
-		fractal->color += 0x000003;
-	else if (key == KEY_A)
-		fractal->color -= 0x300000;
-	else if (key == KEY_S)
-		fractal->color -= 0x030000;
-	else if (key == KEY_D)
-		fractal->color -= 0x003000;
-	else if (key == KEY_F)
-		fractal->color -= 0x000300;
-	else if (key == KEY_G)
-		fractal->color -= 0x000030;
-	else if (key == KEY_H)
-		fractal->color -= 0x000003;
-}
+#include "fractol.h"
 
 void	handle_move(int key, t_fractal *fractal)
 {
@@ -40,14 +24,15 @@ void	handle_move(int key, t_fractal *fractal)
 		fractal->offset_x += VIEW_CHANGE_SIZE / fractal->zoom;
 }
 
-int		compute_fractal(t_fractal *fract, t_complex *c, int x, int y)
+int	compute_fractal(t_fractal *fract, t_complex *c, int x, int y)
 {
-	int iter;
+	int	iter;
 
 	iter = 0;
 	if (ft_strcmp(fract->name, JULIA) == 0)
 		iter = compute_julia(fract, c, x, y);
-	 else {
+	else
+	{
 		c->im = (y / fract->zoom) + fract->offset_y;
 		if (ft_strcmp(fract->name, MANDELBROT) == 0)
 			iter = compute_mandelbrot(fract, c);
@@ -56,17 +41,15 @@ int		compute_fractal(t_fractal *fract, t_complex *c, int x, int y)
 		else if (ft_strcmp(fract->name, TRICORN) == 0)
 			iter = compute_tricorn(fract, c);
 	}
-
 	return (iter);
 }
 
 void	process_row(t_fractal *fract, t_complex *c, int x)
 {
-	int y;
-	int iter;
+	int	y;
+	int	iter;
 
 	y = 0;
-
 	while (y < WIN_SIZE)
 	{
 		iter = compute_fractal(fract, c, x, y);
@@ -77,12 +60,12 @@ void	process_row(t_fractal *fract, t_complex *c, int x)
 
 void	set_pixel_color(t_fractal *fractal, int x, int y, int color)
 {
-	int line_length;
-	int bits_per_pixel;
-	int offset;
+	int	line_length;
+	int	bits_per_pixel;
+	int	offset;
 
 	if (x < 0 || x >= WIN_SIZE || y < 0 || y >= WIN_SIZE)
-		return;
+		return ;
 	line_length = fractal->image.line_length;
 	bits_per_pixel = fractal->image.bits_per_pixel;
 	offset = (y * line_length) + ((bits_per_pixel / 8) * x);
@@ -91,12 +74,13 @@ void	set_pixel_color(t_fractal *fractal, int x, int y, int color)
 
 void	render_fractal(t_fractal *fractal)
 {
-	static t_complex c;
-	int x;
+	static t_complex	c;
+	int					x;
 
 	x = 0;
 	mlx_clear_window(fractal->mlx, fractal->window);
-	if (ft_strcmp(fractal->name, JULIA) == 0) {
+	if (ft_strcmp(fractal->name, JULIA) == 0)
+	{
 		c.re = fractal->julia_x;
 		c.im = fractal->julia_y;
 	}
@@ -107,6 +91,6 @@ void	render_fractal(t_fractal *fractal)
 		process_row(fractal, &c, x);
 		x++;
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->window,
+	mlx_put_image_to_window(fractal->mlx, fractal->window, \
 							fractal->image.img, 0, 0);
 }
