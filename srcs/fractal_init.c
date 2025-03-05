@@ -63,6 +63,6 @@ void	set_fractal(t_fractal *fractal, char *name)
 	else if (ft_strcmp(name, TRICORN) == 0)
 		fractal->name = TRICORN;
 	else
-		wrong_input();
+		help_input();
 }
 

@@ -63,7 +63,7 @@ typedef struct s_fractal
 	int			iterations;
 }	t_fractal;
 
-void	wrong_input(void);
+void	help_input(void);
 void	error_message(char *str);
 int		compute_fractal(t_fractal *fract, t_complex *c, int x, int y);
 void	render_fractal(t_fractal *fractal);

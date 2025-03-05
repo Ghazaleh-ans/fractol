@@ -18,13 +18,13 @@ void	error_message(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	wrong_input(void)
+void	help_input(void)
 {
-	ft_putstr_fd("Error: Invalid arguments\n", 2);
-	ft_putstr_fd("Please use: ./fractol mandelbrot or\n", 2);
-	ft_putstr_fd("Please use: ./fractol julia RE IM or\n", 2);
-	ft_putstr_fd("Please use: ./fractol burningship or\n", 2);
-	ft_putstr_fd("Please use: ./fractol tricorn\n", 2);
+	ft_putstr_fd("It seems you need help\n", 2);
+	ft_putstr_fd("Please use: './fractol mandelbrot' or\n", 2);
+	ft_putstr_fd("Please use: './fractol julia RE IM' or\n", 2);
+	ft_putstr_fd("Please use: './fractol burningship' or\n", 2);
+	ft_putstr_fd("Please use: './fractol tricorn'\n", 2);
 	exit(EXIT_FAILURE);
 }
 
@@ -68,7 +68,12 @@ void	check_julia_input(char *str)
 void	check_input(int argc, char **argv, t_fractal *fractal)
 {
 	if (argc == 2 && ft_strcmp(argv[1], JULIA))
-		return ;
+	{
+		if (ft_strcmp(argv[1], "--help") == 0)
+			help_input();
+		else
+			return ;
+	}
 	else if (argc == 4)
 	{
 		if (ft_strcmp(argv[1], JULIA) == 0)
@@ -80,5 +85,5 @@ void	check_input(int argc, char **argv, t_fractal *fractal)
 			return ;
 		}
 	}
-	wrong_input();
+	help_input();
 }
