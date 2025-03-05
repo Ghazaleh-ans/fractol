@@ -29,6 +29,18 @@ int	on_key_press(int key, t_fractal *fractal)
 		on_destroy(fractal);
 	else if ((key >= KEY_Q && key <= KEY_Y) || (key >= KEY_A && key <= KEY_H))
 		change_color(key, fractal);
+	else if (key == KEY_PLUS && fractal->iterations < MAX_ITERATIONS)
+	{
+		fractal->iterations += 16;
+		if (fractal->iterations > MAX_ITERATIONS)
+			fractal->iterations = MAX_ITERATIONS;
+	}
+	else if (key == KEY_MINUS && fractal->iterations > MIN_ITERATIONS)
+	{
+		fractal->iterations -= 16;
+		if (fractal->iterations < MIN_ITERATIONS)
+			fractal->iterations = MIN_ITERATIONS;
+	}
 	render_fractal(fractal);
 	return (0);
 }
@@ -42,8 +54,8 @@ int	on_mouse_scroll(int key, int x, int y, t_fractal *fractal)
 		fractal->offset_y = (y / fractal->zoom + fractal->offset_y)
 			- (y / (fractal->zoom / 1.3));
 		fractal->zoom /= 1.3;
-		if (fractal->iterations > MIN_ITERATIONS)
-			--fractal->iterations;
+		// if (fractal->iterations > MIN_ITERATIONS)
+		// 	--fractal->iterations;
 	}
 	else if (key == MOUSE_SCRL_DOWN)
 	{
@@ -52,19 +64,9 @@ int	on_mouse_scroll(int key, int x, int y, t_fractal *fractal)
 		fractal->offset_y = (y / fractal->zoom + fractal->offset_y)
 			- (y / (fractal->zoom * 1.3));
 		fractal->zoom *= 1.3;
-		if (fractal->iterations < MAX_ITERATIONS)
-			++fractal->iterations;
+		// if (fractal->iterations < MAX_ITERATIONS)
+		// 	++fractal->iterations;
 	}
 	render_fractal(fractal);
 	return (0);
 }
-
-// int	on_mouse_move(int x, int y, t_fractal *fractal)
-// {
-// 	if (!(ft_strcmp(fractal->name, JULIA) == 0))
-// 		return (0);
-// 	fractal->mouse_x = x;
-// 	fractal->mouse_y = y;
-// 	render_fractal(fractal);
-// 	return (0);
-// }

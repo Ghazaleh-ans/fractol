@@ -27,9 +27,8 @@
 # define WIN_SIZE 526
 # define VIEW_CHANGE_SIZE 60
 # define MIN_ITERATIONS 256
-# define MAX_ITERATIONS 256
+# define MAX_ITERATIONS 2048
 # define DEFAULT_COLOR 655362
-//# define DEFAULT_COLOR 983040
 # define SCALE 2
 # define FIXED_RADIUS 1
 # define MINIMUM_RADIUS 0.5
@@ -79,7 +78,6 @@ int		on_key_press(int key, t_fractal *fractal);
 int		on_destroy(t_fractal *engine);
 int		on_mouse_scroll(int key, int x, int y, t_fractal *fractal);
 void	change_color(int key, t_fractal *fractal);
-//int		on_mouse_move(int x, int y, t_fractal *fractal);
 int		compute_burning_ship(t_fractal *fract, t_complex *c);
 int		compute_tricorn(t_fractal *fract, t_complex *c);
 void	check_input(int argc, char **argv, t_fractal *fractal);

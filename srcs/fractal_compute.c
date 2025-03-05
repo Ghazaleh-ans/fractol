@@ -38,8 +38,10 @@ int	compute_julia(t_fractal *fract, t_complex *c, int x, int y)
 	int			i;
 
 	i = 0;
+	// z.re = (x / fract->zoom) + fract->offset_x;
+	// z.im = ((WIN_SIZE - y) / fract->zoom) + fract->offset_y;
 	z.re = (x / fract->zoom) + fract->offset_x;
-	z.im = ((WIN_SIZE - y) / fract->zoom) + fract->offset_y;
+	z.im = (y / fract->zoom) + fract->offset_y;
 	while ((z.re * z.re + z.im * z.im) < 4 && i < fract->iterations)
 	{
 		re_temp = z.re * z.re - z.im * z.im + c->re;
