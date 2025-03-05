@@ -53,7 +53,7 @@ void	init_fractal(t_fractal *fractal, char *name)
 
 	if (!fractal || !name)
 		return ;
-	reset_fractal(fractal, MANDELBROT);
+	reset_fractal(fractal, name);
 	set_fractal(fractal, name);
 	fractal->mlx = mlx_init();
 	if (!fractal->mlx)
@@ -62,7 +62,7 @@ void	init_fractal(t_fractal *fractal, char *name)
 	init_image(fractal);
 	set_image_address(fractal);
 }
-//mlx_hook(fractal.window, 6, 1L << 6, on_mouse_move, &fractal);
+
 int	main(int argc, char **argv)
 {
 	t_fractal	fractal;

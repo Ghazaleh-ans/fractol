@@ -62,35 +62,35 @@ endif
 all : $(LIBFT) $(MLX) $(OBJS_DIR) $(NAME)
 
 $(LIBFT) :
-	@echo $(BUILD) $(CYAN) " - Making libft..." $(RESET)
+	@echo $(BUILD) $(CYAN) "Making libft..." $(RESET)
 	@$(MAKE) $(LIBFT_DIR)
-	@echo $(SUCCESS) $(YELLOW) " - Made libft!" $(RESET)
+	@echo $(SUCCESS) $(YELLOW) "Made libft!" $(RESET)
 
 $(MLX) :
-	@echo $(BUILD) $(CYAN) " - Making mlx..." $(RESET)
+	@echo $(BUILD) $(CYAN) "Making mlx..." $(RESET)
 	@$(MAKE) $(MLX_DIR)
-	@echo $(SUCCESS) $(YELLOW) " - Made mlx!" $(RESET)
+	@echo $(SUCCESS) $(YELLOW) "Made mlx!" $(RESET)
 
 $(OBJS_DIR) :
 	@$(MKDIR) $(OBJS_DIR)
 
 $(NAME) : $(OBJS) Makefile
-	@echo $(BUILD) $(GREEN) " - Compiling $(NAME)..." $(RESET)
+	@echo $(BUILD) $(GREEN) "Compiling $(NAME)..." $(RESET)
 	@$(CC) $(CFLAGS) $(OBJS) $(LINKER) -o $(NAME)
-	@echo $(SUCCESS) $(YELLOW) " - Compiling FINISHED" $(RESET)
+	@echo $(SUCCESS) $(YELLOW) "Compiling $(NAME) FINISHED" $(RESET)
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c $(INCLUDES)
 	@$(CC) $(CFLAGS) $(INCLUDES_FLAG) -c $< -o $@
 
 clean :
 	@$(RM) $(OBJS_DIR)
-	@echo $(CLEAN) $(RED) " - Cleaned!" $(RESET)
+	@echo $(CLEAN) $(RED) "Cleaned!" $(RESET)
 
 fclean : clean
 	@$(RM) $(NAME)
 	@$(MAKE) $(MLX_DIR) clean
 	@$(MAKE) $(LIBFT_DIR) fclean
-	@echo $(CLEAN) $(RED) " - Full Cleaned!" $(RESET)
+	@echo $(CLEAN) $(RED) "Full Cleaned!" $(RESET)
 
 re: fclean all
 
