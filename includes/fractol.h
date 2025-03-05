@@ -85,5 +85,8 @@ int		compute_tricorn(t_fractal *fract, t_complex *c);
 void	check_input(int argc, char **argv, t_fractal *fractal);
 void	wrong_julia_input(void);
 void	check_julia_input(char *str);
+void	init_window(t_fractal *fractal);
+void	init_image(t_fractal *fractal);
+void	set_image_address(t_fractal *fractal);
 
 #endif

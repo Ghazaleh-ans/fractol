@@ -16,7 +16,7 @@ int	on_destroy(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image.img);
 	mlx_destroy_window(fractal->mlx, fractal->window);
-	mlx_destroy_display(fractal->mlx);
+	//mlx_destroy_display(fractal->mlx);
 	free(fractal->mlx);
 	exit(EXIT_SUCCESS);
 }
@@ -61,7 +61,7 @@ int	on_mouse_scroll(int key, int x, int y, t_fractal *fractal)
 
 // int	on_mouse_move(int x, int y, t_fractal *fractal)
 // {
-// 	if (!(ft_strcmp(fractal->name, JULIA) == 0) || fractal->is_julia_lock)
+// 	if (!(ft_strcmp(fractal->name, JULIA) == 0))
 // 		return (0);
 // 	fractal->mouse_x = x;
 // 	fractal->mouse_y = y;
