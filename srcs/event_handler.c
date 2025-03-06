@@ -16,7 +16,7 @@ int	on_destroy(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image.img);
 	mlx_destroy_window(fractal->mlx, fractal->window);
-	//mlx_destroy_display(fractal->mlx);
+	mlx_destroy_display(fractal->mlx);
 	free(fractal->mlx);
 	exit(EXIT_SUCCESS);
 }
@@ -54,8 +54,6 @@ int	on_mouse_scroll(int key, int x, int y, t_fractal *fractal)
 		fractal->offset_y = (y / fractal->zoom + fractal->offset_y)
 			- (y / (fractal->zoom / 1.3));
 		fractal->zoom /= 1.3;
-		// if (fractal->iterations > MIN_ITERATIONS)
-		// 	--fractal->iterations;
 	}
 	else if (key == MOUSE_SCRL_DOWN)
 	{
@@ -64,8 +62,6 @@ int	on_mouse_scroll(int key, int x, int y, t_fractal *fractal)
 		fractal->offset_y = (y / fractal->zoom + fractal->offset_y)
 			- (y / (fractal->zoom * 1.3));
 		fractal->zoom *= 1.3;
-		// if (fractal->iterations < MAX_ITERATIONS)
-		// 	++fractal->iterations;
 	}
 	render_fractal(fractal);
 	return (0);

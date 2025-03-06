@@ -65,4 +65,3 @@ void	set_fractal(t_fractal *fractal, char *name)
 	else
 		help_input();
 }
-

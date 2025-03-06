@@ -65,7 +65,7 @@ typedef enum keys
 	MOUSE_RIGHT_CLK = 3,
 	MOUSE_SCRL_UP = 4,
 	MOUSE_SCRL_DOWN = 5,
-} t_keys;
+}	t_keys;
 
 # else
 
@@ -119,7 +119,7 @@ typedef enum keys
 	MOUSE_SCRL_CLK = 3,
 	MOUSE_SCRL_DOWN = 4,
 	MOUSE_SCRL_UP = 5,
-} t_keys;
+}	t_keys;
 
 # endif
 

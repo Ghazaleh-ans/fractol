@@ -30,11 +30,12 @@ void	init_image(t_fractal *fractal)
 	if (!fractal->image.img)
 	{
 		mlx_destroy_window(fractal->mlx, fractal->window);
-		//mlx_destroy_display(fractal->mlx);
+		mlx_destroy_display(fractal->mlx);
 		free(fractal->mlx);
 		error_message("ERROR : Failed to create image\n");
 	}
 }
+
 void	set_image_address(t_fractal *fractal)
 {
 	int	pixel_bits;
@@ -50,7 +51,6 @@ void	set_image_address(t_fractal *fractal)
 
 void	init_fractal(t_fractal *fractal, char *name)
 {
-
 	if (!fractal || !name)
 		return ;
 	reset_fractal(fractal, name);
